@@ -19,3 +19,5 @@ Ensure "**Enable DNS hostnames**" is checked, then save.
 Create an Internet gateway and attach it to the VPC(**An internet gateway allows internet access into our VPC**)
 
 ![Alt text](image-3.png)
+
+Create public and private subnets in availability zones
