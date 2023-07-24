@@ -44,4 +44,15 @@ Create a NAT Gateway and assign it an IP address(**We use a NAT gateway so that 
 
 <img width="333" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/8efeb083-26d2-492f-96dd-474149b2c37f">
 
-We would now create a new route table for the private subnets in both availability zones, then we would add routes, assign the NGW to the route table, and then assign the private subnets to it. 
+We would now create a new route table for the private subnets in both availability zones, then we would add routes, assign the NGW to the route table, and then assign the private subnets to them.
+
+## SECURITY GROUP SETUP
+
+<img width="859" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/080bc042-9728-4795-bf46-4e5fc5da2b49">
+
+We will be creating 3 security groups, each with it's own function.
+1. Application load balancer - We will be creating an inbound rule for this SG to allow HTTP & HTTPS traffic into our Webservers.
+2. SSH - This will allow us access our webservers via ssh
+3. Webserver security group
+
+<img width="359" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/e880f5bd-2cdb-412a-b55c-30f8af018b42">
