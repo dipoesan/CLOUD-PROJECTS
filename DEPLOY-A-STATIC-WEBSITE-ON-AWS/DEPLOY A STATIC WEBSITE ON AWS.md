@@ -27,3 +27,14 @@ Create public and private subnets in availability zones
 Also enable "auto-assign-ip" so that IP's are assigned automatically to EC2 instances added into your VPC
 
 <img width="328" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/780bab54-70a8-4c0f-81a2-5a5e019c6119">
+
+Create a route-table (**This contains a set of rules, called routes, that are used to determine where network traffic from your subnet or gateway is directed. It simply tells network packets which way they need to go to get to their destination.**) - 
+
+<img width="354" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/062b09f8-5ded-49eb-baa0-9c39740e7a94">
+
+Add a route that connects to the Internet Gateway we created previously. This means that all the traffic coming into the public subnets can only be from the **IG** and no other place.
+
+<img width="463" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/96a08e66-d80e-4d51-894a-1b6be5cdc55c">
+
+<img width="348" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/17120aeb-81fe-4380-ad45-cf8c40327325">
+
