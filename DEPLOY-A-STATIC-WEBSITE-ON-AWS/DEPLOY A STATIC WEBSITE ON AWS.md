@@ -8,18 +8,22 @@ Create a VPC with options as shown in the image below -
 
 Enable **"DNS HOSTNAMES"** in the VPC settings. (**This is done so that instances launched in the VPC receive public DNS hostnames that correspond to their public IP addresses.**)
 
-![Alt text](/images/image-1.png)
+<img width="839" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/af16da41-acc6-4e61-bba8-2227235e725b">
 
 As highlighted above, click on the **Actions** drop down and the select "**Edit VPC settings**"
 
-![Alt text](/images/image-2.png)
+<img width="337" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/d001b659-1bef-4653-98d9-e07513f82f16">
 
 Ensure "**Enable DNS hostnames**" is checked, then save.
 
 Create an Internet gateway and attach it to the VPC(**An internet gateway allows internet access into our VPC**)
 
-![Alt text](image-3.png)
+<img width="448" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/5b3e8f53-2b20-4852-8674-726dec80c437">
 
 Create public and private subnets in availability zones
 
-![Alt text](image.png)
+<img width="847" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/32dc36c8-1601-4689-8a22-6a076743c567">
+
+Also enable "auto-assign-ip" so that IP's are assigned automatically to EC2 instances added into your VPC
+
+<img width="328" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/780bab54-70a8-4c0f-81a2-5a5e019c6119">
