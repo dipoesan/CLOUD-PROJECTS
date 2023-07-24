@@ -1,5 +1,7 @@
 # DEPLOY A STATIC WEBSITE ON AWS
 
+<img width="930" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/38cab804-0133-4959-b2ea-72a14b766a19">
+
 ## VPC SETUP
 
 Create a VPC with options as shown in the image below -
@@ -32,9 +34,25 @@ Create a route-table (**This contains a set of rules, called routes, that are us
 
 <img width="354" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/062b09f8-5ded-49eb-baa0-9c39740e7a94">
 
-Add a route that connects to the Internet Gateway we created previously. This means that all the traffic coming into the public subnets can only be from the **IG** and no other place.
+Add a route that connects to the Internet Gateway we created previously and associate the route table with public subnets. This means that all the traffic coming into the public subnets can only be from the **IG** and no other place.
 
 <img width="463" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/96a08e66-d80e-4d51-894a-1b6be5cdc55c">
 
-<img width="348" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/17120aeb-81fe-4380-ad45-cf8c40327325">
+<img width="349" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/0fa77044-855b-41fe-b387-551887007450">
 
+Create a NAT Gateway and assign it an IP address(**We use a NAT gateway so that instances in a private subnet can connect to services outside our VPC but external services cannot initiate a connection with those instances**) -
+
+<img width="333" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/8efeb083-26d2-492f-96dd-474149b2c37f">
+
+We would now create a new route table for the private subnets in both availability zones, then we would add routes, assign the NGW to the route table, and then assign the private subnets to them.
+
+## SECURITY GROUP SETUP
+
+<img width="859" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/080bc042-9728-4795-bf46-4e5fc5da2b49">
+
+We will be creating 3 security groups, each with it's own function.
+1. Application load balancer - We will be creating an inbound rule for this SG to allow HTTP & HTTPS traffic into our Webservers.
+2. SSH - This will allow us access our webservers via ssh
+3. Webserver security group
+
+<img width="359" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/e880f5bd-2cdb-412a-b55c-30f8af018b42">
