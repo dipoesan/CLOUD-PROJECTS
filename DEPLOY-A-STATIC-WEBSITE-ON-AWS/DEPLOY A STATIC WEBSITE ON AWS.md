@@ -84,3 +84,16 @@ systemctl start httpd
 ### CREATE ALB
 
 The ALB should be "internet-facing" and IPv4, select the preferred VPC and then select both availability zones in mappings. Assign the ALB SG, and then create a Target group and assign it to the listener you want to create.
+
+<img width="828" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/f077c75c-5d07-4fdc-a4f4-faf2265b8ae1">
+
+By copying the DNS name of the ALB, you can access the website we have installed on both EC2 instances.
+
+<img width="416" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/c25bf4f7-c94d-4210-a10b-3c6c60b5619b">
+
+### REGISTRATION AND SETUP OF A NEW DOMAIN NAME IN ROUTE 53
+
+Go to the Route 53 page and register a domain name of your choice. This is what we are going to be using in place of the ALB DNS name to access the webservers.
+Next, we would create a **record set** which we will point to our ALB.
+
+<img width="418" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/153726c4-f966-48ea-99a4-babb8edb8977">
