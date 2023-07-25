@@ -56,3 +56,31 @@ We will be creating 3 security groups, each with it's own function.
 3. Webserver security group
 
 <img width="359" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/e880f5bd-2cdb-412a-b55c-30f8af018b42">
+
+## SETUP APPLICATION LOAD BALANCER
+
+### CREATE EC2 INSTANCES
+
+Before we create the ALB, we would first spin up EC2 instances which would route their traffic through the ALB. Both EC2 instances would make use of the webserver SG created previously, we will also assign the "private app subnets" to both instances. Then we will add a bash script in the "user data" section to bootstrap the instance.
+
+Link to the bash script - https://github.com/dipoesan/CLOUD-PROJECTS/blob/main/DEPLOY-A-STATIC-WEBSITE-ON-AWS/create_alb.txt
+
+```bash
+#!/bin/bash
+sudo su
+yum update -y
+yum install -y httpd
+cd /var/www/html
+wget https://github.com/azeezsalu/jupiter/archive/refs/heads/main.zip
+unzip main.zip
+cp -r jupiter-main/* /var/www/html/
+rm -rf jupiter-main main.zip
+systemctl enable httpd 
+systemctl start httpd
+```
+
+<img width="380" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/e2f636a5-b44e-49f3-bc1d-431f2b3ffac6">
+
+### CREATE ALB
+
+The ALB should be "internet-facing" and IPv4, select the preferred VPC and then select both availability zones in mappings. Assign the ALB SG, and then create a Target group and assign it to the listener you want to create.
