@@ -97,3 +97,32 @@ Go to the Route 53 page and register a domain name of your choice. This is what 
 Next, we would create a **record set** which we will point to our ALB.
 
 <img width="418" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/153726c4-f966-48ea-99a4-babb8edb8977">
+
+We will then go ahead to register for an SSL certificate in AWS certificate manager.
+
+<img width="365" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/9cd107ad-43e0-4585-83fb-1a54321b5232">
+
+After setting up your certificate as shown above, we will have to create a record set for it. This is to validate that we own the domain. Right from within ACM, we can create the records as highlighted below - 
+
+![image](https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/c50a2366-5b82-4813-9ab7-7c0750ee3ff2)
+
+![image](https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/26ba3c2d-e6d3-4b18-984a-132e6a1ea2e2)
+
+![image](https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/382f7e07-4280-4514-be87-5f64e64b2bf5)
+
+We will now create an HTTPS (SSL) listener for our ALB.
+
+![image](https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/7e9b371e-d2ac-420f-809d-32f1dbec5268)
+
+Edit the listener for HTTP to redirect traffic to HTTPS
+
+![image](https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/6d694826-d922-4a73-ae4a-3a0385a63737)
+
+We are now going to create an "Autoscaling Group". This would help with high availability so that when a certain threshold is met, instances can be spun up and terminated when necessary. We would delete our instances and then create a launch template first. The launch template contains the config of our EC2 instance that the Autoscaling group would use to spin-up instances.
+Setup the Launch Template like you would for an EC2 instance, then go ahead to create the ASG.
+
+<img width="794" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/73e879d2-c4a4-406a-8331-499086528d10">
+
+<img width="798" alt="image" src="https://github.com/dipoesan/CLOUD-PROJECTS/assets/22638955/ecc62842-67d2-4144-846a-214cd5e0f10d">
+
+Checking the EC2 page, we can see that 2 instances have been created.
